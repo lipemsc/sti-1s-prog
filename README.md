@@ -4,41 +4,41 @@
 
 #### Aula 2
 
-- [ ] ex1
-- [ ] ex2
-- [ ] ex3
-- [ ] ex4
-- [ ] ex5
-- [ ] ex6
-- [ ] ex7
-- [ ] ex8
-- [ ] ex9
+- [x] ex1
+- [x] ex2
+- [x] ex3
+- [x] ex4
+- [x] ex5
+- [x] ex6
+- [x] ex7
+- [x] ex8
+- [x] ex9
 
 #### Aula 3
 
-- [ ] ex1
-- [ ] ex2
-- [ ] ex3
-- [ ] ex4
-- [ ] ex5
-- [ ] ex6
-- [ ] ex7
-- [ ] ex8
-- [ ] ex9
+- [x] ex1
+- [x] ex2
+- [x] ex3
+- [x] ex4
+- [x] ex5
+- [x] ex6
+- [x] ex7
+- [x] ex8
+- [x] ex9
 
 #### Aula 4
 
-- [ ] ex1
-- [ ] ex2
+- [x] ex1
+- [x] ex2
 - [ ] ex3
-- [ ] ex4
+- [x] ex4
 - [ ] ex5
 
 #### Aula 5
 
-- [ ] ex1
-- [ ] ex2
-- [ ] ex3
+- [x] ex1
+- [ ] ex2 (ver melhor)
+- [ ] ex3 (ver melhor)
 - [ ] ex4
 - [ ] ex5
 - [ ] ex6
