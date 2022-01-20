@@ -38,14 +38,16 @@ def draw_positions(positions):
 def check_win(positions):
     #debug(positions)
     count = [0, 0]
-    for i in positions:
-        for j in i:
-            if j == 0:
+
+    # horizontal verification
+    for line in positions:
+        for cell in line:
+            if cell == 0:
                 count = [0, 0]
-            elif j == 1:
+            elif cell == 1:
                 count[0] += 1
                 count[1] = 0
-            elif j == 2:
+            elif cell == 2:
                 count[1] += 1
                 count[0] = 0
             if count[0] >= 4:
@@ -53,6 +55,25 @@ def check_win(positions):
             if count[1] >= 4:
                 return 2
         #print(count)
+    
+    count = [0, 0]
+
+    for x in range(len(positions[0])):
+        for y in range(len(positions)):
+            if positions[y][x] == 0:
+                count = [0, 0]
+            elif positions[y][x] == 1:
+                count[0] += 1
+                count[1] = 0
+            elif positions[y][x] == 2:
+                count[1] += 1
+                count[0] = 0
+            if count[0] >= 4:
+                return 1
+            if count[1] >= 4:
+                return 2
+        #print(count)
+
     return 0
 
 def player_prompt(positions, player):
@@ -74,7 +95,7 @@ def player_prompt(positions, player):
 
 draw_logo()
 sleep(2)
-positions = [[0, 0, 0, 0, 0, 0, 0, 0],
+positions = [[0, 0, 0, 0, 0, 0, 0, 0],  # [y][x]
              [0, 0, 0, 0, 0, 0, 0, 0],
              [0, 0, 0, 0, 0, 0, 0, 0],
              [0, 0, 0, 0, 0, 0, 0, 0],

@@ -39,9 +39,9 @@
 - [x] ex1
 - [ ] ex2 (ver melhor)
 - [ ] ex3 (ver melhor)
-- [ ] ex4
-- [ ] ex5
-- [ ] ex6
-- [ ] ex7
-- [ ] ex8
+- [x] ex4
+- [x] ex5
+- [x] ex6
+- [x] ex7
+- [x] ex8
 
