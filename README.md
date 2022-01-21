@@ -8,7 +8,7 @@
  ex2 - feito | ex2 - feito | ex2 - feito | ex2 - ver melhor
  ex3 - feito | ex3 - feito | ex3 - feito | ex3 - ver melhor
  ex4 - feito | ex4 - feito | ex4 - feito | ex4 - feito
- ex5 - feito | ex5 - feito | ex5 - por fazer | ex5 - feito
+ ex5 - feito | ex5 - feito | ex5 - feito, requer testes adicionais | ex5 - feito
  ex6 - feito | ex6 - feito | | ex6 - feito
  ex7 - feito | ex7 - feito | | ex7 - feito
  ex8 - feito | ex8 - feito | | ex8 - feito

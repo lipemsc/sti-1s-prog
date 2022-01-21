@@ -74,6 +74,39 @@ def check_win(positions):
                 return 2
         #print(count)
 
+
+    for y in range(len(positions)):
+        for x in range(len(positions[y])):
+            count = [0, 0]
+            for i in range(4):
+                try:
+                    if positions[y+i][x+i] == 1:
+                        count[0] += 1
+                    if positions[y+i][x+i] == 2:
+                        count[1] += 1
+                except IndexError:
+                    continue
+                if count[0] >= 4:
+                    return 1
+                if count[1] >= 4:
+                    return 2
+            
+            count = [0, 0]
+            for i in range(4):
+                try:
+                    if x-i < 0:
+                        continue
+                    if positions[y+i][x-i] == 1:
+                        count[0] += 1
+                    if positions[y+i][x-i] == 2:
+                        count[1] += 1
+                except IndexError:
+                    continue
+                if count[0] >= 4:
+                    return 1
+                if count[1] >= 4:
+                    return 2
+
     return 0
 
 def player_prompt(positions, player):
