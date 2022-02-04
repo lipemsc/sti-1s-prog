@@ -1,14 +1,4 @@
-from pynput import keyboard
 import os
-
-def on_press(key):
-    try:
-        print('key pressed: {0} '.format(
-            key.char))
-    except AttributeError:
-        print('key pressed: {0}'.format(
-            key))
-
 
 class Game:
     def __init__(self, word):
@@ -16,7 +6,10 @@ class Game:
         self.word = list(word)
         self.guessed = []
         for i in range(len(word)):
-            self.guessed.append(None)
+            if self.word[i] == " ":
+                self.guessed.append(" ")
+            else:
+                self.guessed.append(None)
 
     def clear(self):
         command = 'clear'
@@ -29,10 +22,11 @@ class Game:
             character = list(character)[0]
         except IndexError:
             return -1
+       
         if character in self.word and not character in self.guessed:
             for i in range(len(self.word)):
-                if self.word[i] == character:
-                    self.guessed[i] = character
+                if self.word[i] == character.lower() or self.word[i] == character.upper():
+                    self.guessed[i] = self.word[i]
         else:
             self.misses.append(character)
     
@@ -117,24 +111,11 @@ while True:
     game.print_humanoid()
     game.print_guess()
     game.print_misses()
-    game.make_play(input("Insira uma letra: "))
     if game.verify_win() == True:
         print("Ganhaste!")
         break
     if game.verify_loss() == True:
         print("Perdeste!")
         break
-
-
-
-
-
-
-
-
-
-
-
-#with keyboard.Listener(on_press=on_press) as listener:
-#    listener.join()
-
+    game.make_play(input("Insira uma letra: "))
+    
