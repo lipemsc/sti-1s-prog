@@ -23,7 +23,7 @@ class Game:
         except IndexError:
             return -1
        
-        if character in self.word and not character in self.guessed:
+        if (character.lower() in self.word or character.upper() in self.word) and not character in self.guessed:
             for i in range(len(self.word)):
                 if self.word[i] == character.lower() or self.word[i] == character.upper():
                     self.guessed[i] = self.word[i]
