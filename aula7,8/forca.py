@@ -1,4 +1,7 @@
 import os
+import json
+import random
+import requests
 
 class Game:
     def __init__(self, word):
@@ -104,7 +107,20 @@ class Game:
         
 
 
-game = Game(input("Insira a palavra:").strip())
+palavra = input("Insira a palavra (deixe em branco para uma palavra random):")
+online = True
+
+if palavra == "":
+    if online == False:
+        file = open("palavras.json")
+        words = json.load(file)
+        palavra = random.choice(words)
+        print(palavra)
+    else:
+        palavra = json.loads(requests.get("https://api.dicionario-aberto.net/random").text)["word"]
+
+game = Game(palavra.strip())
+
 
 while True:
     game.clear()
@@ -115,7 +131,7 @@ while True:
         print("Ganhaste!")
         break
     if game.verify_loss() == True:
-        print("Perdeste!")
+        print(f"Perdeste! A palavra correta era {palavra}")
         break
     game.make_play(input("Insira uma letra: "))
     
