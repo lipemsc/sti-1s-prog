@@ -2,6 +2,7 @@ import os
 import json
 import random
 import requests
+import xml.etree.ElementTree as xml
 
 class Game:
     def __init__(self, word):
@@ -11,6 +12,8 @@ class Game:
         for i in range(len(word)):
             if self.word[i] == " ":
                 self.guessed.append(" ")
+            elif self.word[i] == "-":
+                self.guessed.append("-")
             else:
                 self.guessed.append(None)
 
@@ -26,7 +29,7 @@ class Game:
         except IndexError:
             return -1
        
-        if (character.lower() in self.word or character.upper() in self.word) and not character in self.guessed:
+        if (character.lower() in self.word or character.upper() in self.word) and not (character.upper() in self.guessed or character.lower() in self.guessed):
             for i in range(len(self.word)):
                 if self.word[i] == character.lower() or self.word[i] == character.upper():
                     self.guessed[i] = self.word[i]
@@ -132,6 +135,24 @@ while True:
         break
     if game.verify_loss() == True:
         print(f"Perdeste! A palavra correta era {palavra}")
+        print(f"Significado de {palavra}:")
+        significados = json.loads(requests.get(f"https://api.dicionario-aberto.net/word/{palavra}").text)
+        for significado in significados:
+            sigroot = xml.fromstring(significado["xml"])
+            for item in sigroot:
+                #print(item.tag)
+                if item.tag == "sense":
+                    print("(", end="")
+                    for i in item:
+                        if i.tag == "def":
+                            definition = i.text
+                        else:
+                            print(i.text, end="")
+                    print(")", end="")
+                    print(definition)
+                    #print(i.tag, "-", i.text)
+        print()
+        #print(significado)
         break
     game.make_play(input("Insira uma letra: "))
     
